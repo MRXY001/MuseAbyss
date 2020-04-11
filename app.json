@@ -3,13 +3,13 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/mine/publish",
-    "pages/publish/entrance",
+    "pages/publish/create",
     "pages/mine/relayed"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "思绪深渊",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
@@ -28,7 +28,7 @@
       {
         "selectedIconPath": "images/publish_selected.png",
         "iconPath": "images/publish.png",
-        "pagePath": "pages/publish/entrance",
+        "pagePath": "pages/publish/create",
         "text": "发布"
       },
       {
