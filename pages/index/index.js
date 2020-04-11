@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '写作天下之思绪深渊',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -60,7 +60,7 @@ Page({
       data: data,
       success: (result) => {
         if (result.statusCode==200) {
-          console.log(result.data);
+          // console.log(result.data);
           this.setData({
             muses: result.data.data,  // 数组
           })

@@ -21,7 +21,30 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
+              console.log(res);
 
+              const openIdUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+              console.log('code:', res.code);
+              wx.request({
+                url: openIdUrl,
+                data: {
+                  appid:'wxbc52ff8ba16a625c',
+                  secret:'',
+                  js_code:res.code,
+                  grant_type:'authorization_code',
+                  encryptedData: res.encryptedData,
+                  iv: res.iv
+                },
+                success: (res) => {
+                  console.log('获取 openid 成功');
+                  console.log(res);
+                  this.globalData.openid = res.data.openid;
+                },
+                fail: (res) => {
+                  console.log('获取 openid 失败', res);
+                }
+              });
+              
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -35,6 +58,9 @@ App({
   },
   globalData: {
     userInfo: null,
+    openid: null,
+    unionid: null,
+    nickname: null,
     serverUrl: 'https://writerfly.cn/muse/public/index.php/index/muse/',
   }
 })

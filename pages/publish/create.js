@@ -54,6 +54,7 @@ Page({
   formSubmit: function(e) {
     const content = e.detail.value.textarea;
     const url = app.globalData.serverUrl + 'create';
+    console.log(app.globalData.userInfo);
     const data = {
       wx_id: 'test',
       content: content
@@ -73,7 +74,6 @@ Page({
             })
           }
           else {
-            console.log(result.data);
             wx.showToast({
               title: result.data.msg,
             });
