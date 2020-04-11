@@ -10,6 +10,25 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        const openIdUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+        wx.request({
+          url: openIdUrl,
+          data: {
+            appid:'wxbc52ff8ba16a625c',
+            secret:'82c170ad840e857a7a69da02a6652ca9', // 简直操蛋，太麻烦，懒得挂服务器上了
+            js_code:res.code,
+            grant_type:'authorization_code',
+            encryptedData: res.encryptedData,
+            iv: res.iv
+          },
+          success: (res) => {
+            console.log('获取 openid 成功', res.data.openid, res);
+            this.globalData.openid = res.data.openid;
+          },
+          fail: (res) => {
+            console.log('获取 openid 失败', res);
+          }
+        });
       }
     })
     // 获取用户信息
@@ -21,29 +40,8 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-              console.log(res);
-
-              const openIdUrl = 'https://api.weixin.qq.com/sns/jscode2session';
-              console.log('code:', res.code);
-              wx.request({
-                url: openIdUrl,
-                data: {
-                  appid:'wxbc52ff8ba16a625c',
-                  secret:'',
-                  js_code:res.code,
-                  grant_type:'authorization_code',
-                  encryptedData: res.encryptedData,
-                  iv: res.iv
-                },
-                success: (res) => {
-                  console.log('获取 openid 成功');
-                  console.log(res);
-                  this.globalData.openid = res.data.openid;
-                },
-                fail: (res) => {
-                  console.log('获取 openid 失败', res);
-                }
-              });
+              this.globalData.nickname = res.userInfo.nickName;
+              console.log("获取到userInfo", res)
               
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
