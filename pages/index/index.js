@@ -7,13 +7,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    muses: []
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -50,5 +45,27 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  refeshMuses: function() {
+    
+  },
+  onShow: function() {
+    const url = app.globalData.serverUrl + 'latest';
+    const data = {
+      wx_id: 'test',
+    };
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      success: (result) => {
+        if (result.statusCode==200) {
+          console.log(result.data);
+          this.setData({
+            muses: result.data.data,  // 数组
+          })
+        }
+      },
+    })
+  },
 })

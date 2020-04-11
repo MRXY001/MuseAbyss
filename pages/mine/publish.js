@@ -9,24 +9,25 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载，仅一次
    */
   onLoad: function (options) {
-
+    console.log('onLoad');
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
+   * 实测会在第一次 show 之后，仅触发一次
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

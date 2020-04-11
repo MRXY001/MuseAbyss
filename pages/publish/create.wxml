@@ -13,7 +13,7 @@
         <text class="regular-text">4、情节发布后无法修改，请三思</text>
       </view>
       <form bindsubmit="formSubmit">
-        <textarea placeholder="情节内容" name="textarea" class="section edit" auto-height auto-focus/>
+        <textarea placeholder="情节内容（30~300字）" name="textarea" class="section edit" auto-height auto-focus/>
         <button form-type="submit" class="publish-button"> 创建第1层深渊 </button>
       </form>
     </block>

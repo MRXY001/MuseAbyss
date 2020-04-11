@@ -3,67 +3,20 @@
 	<!--主体-->
 	<view class="page__bd">
 		<scroll-view scroll-y="true" class="muse-list">
-			<view class="muse-card">
-				<view class="muse-title">
-					<text class="muse-user">用户</text>
-					<text class="muse-time">03/03 05:16</text>
-					<text class="muse-floor">1 层</text>
+			<block wx:for="{{muses}}" wx:for-item="muse">
+				<view class="muse-card">
+					<view class="muse-title">
+						<text class="muse-user">{{muse.nickname}}</text>
+						<text class="muse-time">{{muse.create_time}}</text>
+						<text class="muse-floor">{{muse.floor}} 层</text>
+					</view>
+					<text class="muse-body">{{muse.content}}</text>
+					<view class="muse-button-container">
+						<button bindtap="goEnter" class="muse-enter">查看与接力</button>
+						<button bindtap="goReport" class="muse-report">举报</button>
+					</view>
 				</view>
-				<text class="muse-body">接力内容</text>
-				<view class="muse-button-container">
-					<button bindtap="goEnter" class="muse-enter">查看与接力</button>
-					<button bindtap="goReport" class="muse-report">举报</button>
-				</view>
-			</view>
-
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
-			<view class="muse-card">
-				<text>item</text>
-			</view>
+			</block>
 		</scroll-view>
 	</view>
 </view>
