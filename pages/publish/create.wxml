@@ -3,11 +3,19 @@
 <view class="page">
   <!-- 请求用户登录或者显示账号信息 -->
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录 </button>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <view class="regular-card">
+        <text class="regular-text">规则说明：</text>
+        <text class="regular-text">1、任何人都能创建一个情节开头</text>
+        <text class="regular-text">2、任何人都能在某情节后面接力</text>
+        <text class="regular-text">3、同一人不可再接力自己的情节</text>
+        <text class="regular-text">4、情节发布后无法修改，请三思</text>
+      </view>
+      <form bindsubmit="formSubmit">
+        <textarea placeholder="情节内容" name="textarea" class="section edit" auto-height auto-focus/>
+        <button form-type="submit" class="publish-button"> 创建第1层深渊 </button>
+      </form>
     </block>
   </view>
-
 </view>

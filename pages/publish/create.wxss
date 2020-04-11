@@ -1,1 +1,21 @@
 /* pages/publish/index.wxss */
+
+.regular-card {
+  margin: 32rpx;
+  padding: 16rpx;
+  border-radius: 8rpx;
+  background-color: white;
+  box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.08), 0 6rpx 20rpx 0 rgba(0, 0, 0, 0.08);
+}
+
+.regular-text {
+  display: block;
+}
+
+.edit {
+  margin: 32rpx;
+}
+
+.publish-button {
+  
+}

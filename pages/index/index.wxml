@@ -65,14 +65,5 @@
 				<text>item</text>
 			</view>
 		</scroll-view>
-
-		<!-- 请求用户登录或者显示账号信息 -->
-		<view class="userinfo">
-			<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-			<block wx:else>
-				<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-			</block>
-		</view>
 	</view>
-
 </view>

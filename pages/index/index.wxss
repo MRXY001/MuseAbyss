@@ -18,7 +18,7 @@
 
 /**总列表**/
 .muse-list {
-  height: 900rpx;
+  height: 90%;
   margin: 8rpx;
   padding: 8rpx;
 }

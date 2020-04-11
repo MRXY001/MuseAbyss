@@ -10,9 +10,9 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
+  goList: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../index/index'
     })
   },
   onLoad: function () {
@@ -49,6 +49,37 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  formSubmit: function(e) {
+    const content = e.detail.value.textarea;
+    const url = app.globalData.serverUrl + 'create';
+    const data = {
+      wx_id: 'test',
+      content: content
+    };
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      success(result) {
+        if (result.statusCode==200) {
+          wx.showToast({
+            title: '发布成功',
+          });
+          if (result.data.result == true) {
+            wx.switchTab({
+              url: '../index/index'
+            })
+          }
+          else {
+            console.log(result.data);
+            wx.showToast({
+              title: result.data.msg,
+            });
+          }
+        }
+      },
     })
   }
 })

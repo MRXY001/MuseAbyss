@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    serverUrl: 'https://writerfly.cn/muse/public/index.php/index/muse/',
   }
 })
