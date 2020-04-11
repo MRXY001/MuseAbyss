@@ -1,14 +1,42 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/mine/publish",
+    "pages/publish/entrance",
+    "pages/mine/relayed"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/abyss_selected.png",
+        "iconPath": "images/abyss.png",
+        "pagePath": "pages/index/index",
+        "text": "深渊"
+      },
+      {
+        "selectedIconPath": "images/publish_selected.png",
+        "iconPath": "images/publish.png",
+        "pagePath": "pages/publish/entrance",
+        "text": "发布"
+      },
+      {
+        "selectedIconPath": "images/mine_selected.png",
+        "iconPath": "images/mine.png",
+        "pagePath": "pages/mine/publish",
+        "text": "我的"
+      }
+    ]
+  }
 }

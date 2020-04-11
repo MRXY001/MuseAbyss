@@ -40,7 +40,7 @@
 /**用户**/
 .muse-user {
   /* text-align: left; */
-  font-weight: 700;
+  font-weight: 640;
 }
 
 /**时间**/
