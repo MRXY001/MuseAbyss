@@ -1,0 +1,81 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+/**总列表**/
+.muse-list {
+  height: 900rpx;
+  margin: 8rpx;
+  padding: 8rpx;
+}
+
+/**思绪卡片**/
+.muse-card {
+  margin: 24rpx;
+  padding: 16rpx;
+  border-radius: 8rpx;
+  background-color: white;
+  box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.08), 0 6rpx 20rpx 0 rgba(0, 0, 0, 0.08);
+}
+
+.muse-title {
+  display: flex;
+  justify-content: space-around;
+}
+
+/**用户**/
+.muse-user {
+  /* text-align: left; */
+  font-weight: 700;
+}
+
+/**时间**/
+.muse-time {
+  color: gray;
+  font-size: smaller;
+  margin-left: 32rpx;
+}
+
+/**楼层**/
+.muse-floor {
+  color: red;
+  font-size: smaller;
+}
+
+/**内容**/
+.muse-body {
+  display: block;
+  margin: 32rpx;
+}
+
+.muse-button-container {
+  display: flex;
+  justify-content: flex-end;
+  font-size: xx-small;
+}
+
+/**接力**/
+.muse-enter {
+  display: inline;
+  color: blue;
+}
+
+/**举报**/
+.muse-report {
+  display: inline;
+  color: gray;
+}

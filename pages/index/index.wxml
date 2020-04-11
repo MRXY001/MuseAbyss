@@ -1,0 +1,77 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y="true" class="muse-list">
+      <view class="muse-card">
+        <view class="muse-title">
+          <text class="muse-user">用户</text>
+          <text class="muse-time">03/03 05:16</text>
+          <text class="muse-floor">1 层</text>
+        </view>
+        <text class="muse-body">接力内容</text>
+        <view class="muse-button-container">
+          <button bindtap="goEnter" class="muse-enter">查看与接力</button>
+          <button bindtap="goReport" class="muse-report">举报</button>
+        </view>
+      </view>
+
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+      <view class="muse-card">
+        <text>item</text>
+      </view>
+  </scroll-view>
+
+  <!-- 请求用户登录或者显示账号信息 -->
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <!-- 导航栏 -->
+</view>
