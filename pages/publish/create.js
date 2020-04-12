@@ -67,7 +67,8 @@ Page({
     const url = app.globalData.serverUrl + 'create';
     console.log(app.globalData.userInfo);
     const data = {
-      user_id: 'test',
+      user_id: app.globalData.openid,
+      nickname: app.globalData.nickname,
       content: content
     };
     wx.request({

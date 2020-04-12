@@ -10,7 +10,22 @@
 <!--内容主体-->
   <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
     <swiper-item>
-      <view>我是tab1</view>
+      <scroll-view scroll-y="true" class="muse-list">
+				<block wx:for="{{mineAfterMuses}}" wx:for-item="muse">
+					<view class="muse-card">
+						<view class="muse-title">
+							<text class="muse-user">{{app.globalData.nickname}}</text>
+							<text class="muse-time">{{muse.create_time}}</text>
+							<text class="muse-floor">{{muse.floor}} 层</text>
+						</view>
+						<text class="muse-body">{{muse.content}}</text>
+						<view class="muse-button-container">
+							<button bindtap="goEnter" class="muse-enter">查看与接力</button>
+							<button bindtap="goReport" class="muse-report">举报</button>
+						</view>
+					</view>
+				</block>
+			</scroll-view>
     </swiper-item>
     <swiper-item>
       <view>我是tab2</view>

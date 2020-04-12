@@ -70,6 +70,11 @@ Page({
       hasUserInfo: true
     })
   },
+  onShow: function() {
+    this.refreshLatestMuses();
+    this.refreshMaximumMuses();
+    this.refreshEntranceMuses();
+  },
   refreshLatestMuses: function() {
     const url = app.globalData.serverUrl + 'latest';
     const data = {
@@ -90,6 +95,9 @@ Page({
       },
     })
   },
+  /**
+   * 联网获取列表
+   */
   refreshMaximumMuses: function() {
     const url = app.globalData.serverUrl + 'maximum';
     const data = {
@@ -129,10 +137,5 @@ Page({
         }
       },
     })
-  },
-  onShow: function() {
-    this.refreshLatestMuses();
-    this.refreshMaximumMuses();
-    this.refreshEntranceMuses();
   },
 })

@@ -1,4 +1,7 @@
 // pages/mine/index.js
+//获取应用实例
+const app = getApp()
+
 Page({
 
   /**
@@ -6,6 +9,8 @@ Page({
    */
   data: {
     currentTab: 0,
+    mineAfterMuses: [],
+    afterMineMuses: [],
   },
 
   /**
@@ -49,7 +54,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.refreshMineAfterMuses();
+    this.refreshAfterMineMuses();
   },
 
   /**
@@ -85,5 +91,46 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  
+  refreshMineAfterMuses: function() {
+    const url = app.globalData.serverUrl + 'mine';
+    const data = {
+      user_id: app.globalData.openid,
+      nickname: app.globalData.nickname
+    };
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      success: (result) => {
+        if (result.statusCode==200) {
+          console.log(result.data);
+          this.setData({
+            mineAfterMuses: result.data.data,  // 数组
+          })
+        }
+      },
+    })
+  },
+  refreshAfterMineMuses: function() {
+    const url = app.globalData.serverUrl + 'relayMine';
+    const data = {
+      user_id: app.globalData.openid,
+      nickname: app.globalData.nickname
+    };
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      success: (result) => {
+        if (result.statusCode==200) {
+          console.log(result.data);
+          this.setData({
+            afterMineMuses: result.data.data,  // 数组
+          })
+        }
+      },
+    })
+  },
 })
