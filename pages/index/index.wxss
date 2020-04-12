@@ -55,7 +55,7 @@
 
 /**楼层**/
 .muse-floor {
-  color: red;
+  color: #CC7722;
   font-size: smaller;
 }
 
@@ -74,11 +74,11 @@
 /**接力**/
 .muse-enter {
   display: inline;
-  color: blue;
+  color: #4169E1;
 }
 
 /**举报**/
 .muse-report {
   display: inline;
-  color: gray;
+  color: rgb(150, 150, 150);
 }

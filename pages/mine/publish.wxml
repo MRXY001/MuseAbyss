@@ -1,2 +1,23 @@
 <!--pages/mine/index.wxml-->
-<text>pages/mine/index.wxml</text>
+<view class="page">
+  <!--顶部导航栏-->
+  <view class="swiper-tab">
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">Tab1</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">Tab2</view>
+    <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">Tab3</view>
+  </view>
+
+<!--内容主体-->
+
+  <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
+    <swiper-item>
+      <view>我是tab1</view>
+    </swiper-item>
+    <swiper-item>
+      <view>我是tab2</view>
+    </swiper-item>
+    <swiper-item>
+      <view>我是tab3</view>
+    </swiper-item>
+  </swiper>
+</view>

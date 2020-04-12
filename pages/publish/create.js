@@ -17,7 +17,8 @@ Page({
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
-      console.log('++++++++++++++++++++++++++++++++++');
+      // 如果之前已经获取到，那么自动打开
+      console.log('====onLoad0');
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
@@ -26,7 +27,7 @@ Page({
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
-        console.log('-----------------------------------');
+        console.log('====onLoad1');
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
@@ -36,7 +37,7 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
-          console.log('======================================');
+          console.log('====onLoad2');
           app.globalData.userInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,
@@ -47,7 +48,7 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log('*****************************');
+    // 手动点击按钮返回后获取到 UserInfo
     console.log("getUserInfo: function", e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -57,6 +58,12 @@ Page({
   },
   formSubmit: function(e) {
     const content = e.detail.value.textarea;
+    if (content.length < 30) {
+      wx.showToast({
+        title: '请输入30~300字的情节',
+      });
+      return ;
+    }
     const url = app.globalData.serverUrl + 'create';
     console.log(app.globalData.userInfo);
     const data = {

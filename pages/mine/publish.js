@@ -5,14 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentTab: 0,
   },
 
+  /**
+   * 点击tab事件
+   */
+  swichNav: function (e) {
+    console.log('switch:', e);
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current,
+      })
+    }
+  },
+  /**
+   * 切换页面
+   */
+  swiperChange: function (e) {
+    console.log('change:', e);
+    this.setData({
+      currentTab: e.detail.current,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载，仅一次
    */
   onLoad: function (options) {
-    console.log('onLoad');
+
   },
 
   /**
@@ -20,14 +43,14 @@ Page({
    * 实测会在第一次 show 之后，仅触发一次
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
