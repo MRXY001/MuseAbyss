@@ -1,22 +1,68 @@
 <!--index.wxml-->
 <view class="page">
-	<!--主体-->
-	<view class="page__bd">
-		<scroll-view scroll-y="true" class="muse-list">
-			<block wx:for="{{muses}}" wx:for-item="muse">
-				<view class="muse-card">
-					<view class="muse-title">
-						<text class="muse-user">{{muse.nickname}}</text>
-						<text class="muse-time">{{muse.create_time}}</text>
-						<text class="muse-floor">{{muse.floor}} 层</text>
+
+	<!--顶部导航栏-->
+  <view class="swiper-tab">
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">最新</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">热门</view>
+    <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">第一层</view>
+  </view>
+	
+	<!--内容主体-->
+	<swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="muse-list">
+				<block wx:for="{{latestMuses}}" wx:for-item="muse">
+					<view class="muse-card">
+						<view class="muse-title">
+							<text class="muse-user">{{muse.nickname}}</text>
+							<text class="muse-time">{{muse.create_time}}</text>
+							<text class="muse-floor">{{muse.floor}} 层</text>
+						</view>
+						<text class="muse-body">{{muse.content}}</text>
+						<view class="muse-button-container">
+							<button bindtap="goEnter" class="muse-enter">查看与接力</button>
+							<button bindtap="goReport" class="muse-report">举报</button>
+						</view>
 					</view>
-					<text class="muse-body">{{muse.content}}</text>
-					<view class="muse-button-container">
-						<button bindtap="goEnter" class="muse-enter">查看与接力</button>
-						<button bindtap="goReport" class="muse-report">举报</button>
+				</block>
+			</scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="muse-list">
+				<block wx:for="{{maximumMuses}}" wx:for-item="muse">
+					<view class="muse-card">
+						<view class="muse-title">
+							<text class="muse-user">{{muse.nickname}}</text>
+							<text class="muse-time">{{muse.create_time}}</text>
+							<text class="muse-floor">{{muse.floor}} 层</text>
+						</view>
+						<text class="muse-body">{{muse.content}}</text>
+						<view class="muse-button-container">
+							<button bindtap="goEnter" class="muse-enter">查看与接力</button>
+							<button bindtap="goReport" class="muse-report">举报</button>
+						</view>
 					</view>
-				</view>
-			</block>
-		</scroll-view>
-	</view>
+				</block>
+			</scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="muse-list">
+				<block wx:for="{{entranceMuses}}" wx:for-item="muse">
+					<view class="muse-card">
+						<view class="muse-title">
+							<text class="muse-user">{{muse.nickname}}</text>
+							<text class="muse-time">{{muse.create_time}}</text>
+							<text class="muse-floor">{{muse.floor}} 层</text>
+						</view>
+						<text class="muse-body">{{muse.content}}</text>
+						<view class="muse-button-container">
+							<button bindtap="goEnter" class="muse-enter">查看与接力</button>
+							<button bindtap="goReport" class="muse-report">举报</button>
+						</view>
+					</view>
+				</block>
+			</scroll-view>
+    </swiper-item>
+  </swiper>
 </view>

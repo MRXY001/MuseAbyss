@@ -16,6 +16,33 @@
   color: #aaa;
 }
 
+/*整个tab*/
+.swiper-tab {
+  display: flex;
+  flex-direction: row;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #777;
+}
+
+/*单个tab*/
+.tab-item {
+  width: 33.3%;
+  text-align: center;
+  font-size: 15px;
+  color: #777;
+}
+
+/*滑动页面*/
+.swiper {
+  height: 1100px;
+}
+
+/*选中tab*/
+.on {
+  color: #4169E1;
+  border-bottom: 5rpx solid #4169E1;
+}
+
 /**总列表**/
 .muse-list {
   height: 90%;

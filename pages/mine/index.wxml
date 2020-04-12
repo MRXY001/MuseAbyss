@@ -2,13 +2,12 @@
 <view class="page">
   <!--顶部导航栏-->
   <view class="swiper-tab">
-    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">Tab1</view>
-    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">Tab2</view>
-    <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">Tab3</view>
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">发布</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">被接力</view>
+    <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">排行</view>
   </view>
 
 <!--内容主体-->
-
   <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
     <swiper-item>
       <view>我是tab1</view>

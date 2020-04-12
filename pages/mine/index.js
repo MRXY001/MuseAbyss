@@ -12,7 +12,6 @@ Page({
    * 点击tab事件
    */
   swichNav: function (e) {
-    console.log('switch:', e);
     var that = this;
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
@@ -26,11 +25,11 @@ Page({
    * 切换页面
    */
   swiperChange: function (e) {
-    console.log('change:', e);
     this.setData({
       currentTab: e.detail.current,
     })
   },
+
   /**
    * 生命周期函数--监听页面加载，仅一次
    */

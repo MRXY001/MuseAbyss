@@ -8,7 +8,31 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    muses: []
+    currentTab: 0,
+    latestMuses: [],
+    maximumMuses: [],
+    entranceMuses: []
+  },
+  /**
+   * 点击tab事件
+   */
+  swichNav: function (e) {
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current,
+      })
+    }
+  },
+  /**
+   * 切换页面
+   */
+  swiperChange: function (e) {
+    this.setData({
+      currentTab: e.detail.current,
+    })
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -46,13 +70,11 @@ Page({
       hasUserInfo: true
     })
   },
-  refeshMuses: function() {
-    
-  },
-  onShow: function() {
+  refreshLatestMuses: function() {
     const url = app.globalData.serverUrl + 'latest';
     const data = {
-      wx_id: 'test',
+      user_id: app.globalData.openid,
+      nickname: app.globalData.nickname
     };
     wx.request({
       url: url,
@@ -60,12 +82,57 @@ Page({
       data: data,
       success: (result) => {
         if (result.statusCode==200) {
-          // console.log(result.data);
+          console.log(result.data);
           this.setData({
-            muses: result.data.data,  // 数组
+            latestMuses: result.data.data,  // 数组
           })
         }
       },
     })
+  },
+  refreshMaximumMuses: function() {
+    const url = app.globalData.serverUrl + 'maximum';
+    const data = {
+      user_id: app.globalData.openid,
+      nickname: app.globalData.nickname
+    };
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      success: (result) => {
+        if (result.statusCode==200) {
+          console.log(result.data);
+          this.setData({
+            maximumMuses: result.data.data,  // 数组
+          })
+        }
+      },
+    })
+  },
+  refreshEntranceMuses: function() {
+    const url = app.globalData.serverUrl + 'entrance';
+    const data = {
+      user_id: app.globalData.openid,
+      nickname: app.globalData.nickname
+    };
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      success: (result) => {
+        if (result.statusCode==200) {
+          console.log(result.data);
+          this.setData({
+            entranceMuses: result.data.data,  // 数组
+          })
+        }
+      },
+    })
+  },
+  onShow: function() {
+    this.refreshLatestMuses();
+    this.refreshMaximumMuses();
+    this.refreshEntranceMuses();
   },
 })

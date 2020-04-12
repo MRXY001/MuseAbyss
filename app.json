@@ -2,9 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/mine/publish",
-    "pages/publish/create",
-    "pages/mine/relayed"
+    "pages/mine/index",
+    "pages/publish/create"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,7 +33,7 @@
       {
         "selectedIconPath": "images/mine_selected.png",
         "iconPath": "images/mine.png",
-        "pagePath": "pages/mine/publish",
+        "pagePath": "pages/mine/index",
         "text": "我的"
       }
     ]
