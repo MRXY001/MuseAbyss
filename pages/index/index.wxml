@@ -21,8 +21,8 @@
 						</view>
 						<text class="muse-body">{{muse.content}}</text>
 						<view class="muse-button-container">
-							<button bindtap="goEnter" class="muse-enter">查看与接力</button>
-							<button bindtap="goReport" class="muse-report">举报</button>
+							<button id="{{muse.museID}}" bindtap="bindGoLineTap" class="muse-enter">查看与接力</button>
+							<button id="{{muse.museID}}" bindtap="bindGoReportTap" class="muse-report">举报</button>
 						</view>
 					</view>
 				</block>

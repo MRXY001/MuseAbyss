@@ -138,4 +138,26 @@ Page({
       },
     })
   },
+
+  /**
+   * 跳转到故事线
+   */
+  bindGoLineTap: function(e) {
+    const museID = e.currentTarget.id;
+    this.goLine(museID);
+  },
+  goLine: function(museID) {
+    // 保存数据，在 line 的 onShow 里读取
+    wx.setStorageSync('line_muse_id', museID);
+    wx.navigateTo({
+      url: '../line/line',
+    })
+  },
+
+  /**
+   * 举报
+   */
+  bindGoReportTap: function(e) {
+    const museID = e.currentTarget.id;
+  },
 })
