@@ -15,10 +15,16 @@
     </view>
   </block>
 
-  <form bindsubmit="formSubmit">
-    <textarea placeholder="接力情节（30~300字）" name="textarea" class="section edit" auto-height auto-focus/>
-    <button form-type="submit" class="relay-button"> 接力 </button>
-  </form>
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录后接力 </button>
+  <block wx:else>
+    <text wx:if="{{isMySelfMuse}}" class="not-myself">不能接力自己的情节</text>
+    <block wx:else>
+      <form bindsubmit="formSubmit" class="form-area">
+        <textarea placeholder="接力情节（30~300字）" name="textarea" class="section edit" auto-height/>
+        <button form-type="submit" class="relay-button"> 接力 </button>
+      </form>
+    </block>
+  </block>
 
   <block wx:for="{{childMuses}}" wx:for-item="muse">
     <view class="muse-card">

@@ -19,3 +19,7 @@
 .publish-button {
   
 }
+
+.form-area {
+  margin: 32rpx;
+}

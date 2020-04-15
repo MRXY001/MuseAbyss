@@ -45,7 +45,7 @@
 			</scroll-view>
     </swiper-item>
     <swiper-item>
-      <view>我是tab3</view>
+      <view>暂无排行榜</view>
     </swiper-item>
   </swiper>
 </view>

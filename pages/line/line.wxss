@@ -69,5 +69,14 @@
 }
 
 .relay-button {
-  
+
+}
+
+.form-area {
+  margin: 32rpx;
+}
+
+.not-myself {
+  margin: 32px;
+  color: gray;
 }
