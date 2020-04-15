@@ -83,10 +83,67 @@ Page({
       data: data,
       success: (result) => {
         if (result.statusCode==200) {
-          console.log(result.data);
-
+          console.log('line', result.data);
+          this.setData({
+            parentMuses : result.data.parents,
+            childMuses : result.data.children || []
+          });
         }
       },
     })
-  }
+  },
+
+  /**
+   * 跳转到故事线
+   */
+  bindGoLineTap: function(e) {
+    const museID = e.currentTarget.id;
+    this.refreshLine(museID);
+  },
+  /**
+   * 举报
+   */
+  bindGoReportTap: function(e) {
+    const museID = e.currentTarget.id;
+  },
+
+  /**
+   * 接力
+   */
+  formSubmit: function(e) {
+    const content = e.detail.value.textarea;
+    if (content.length < 30) {
+      wx.showToast({
+        title: '请输入30~300字的情节',
+      });
+      return ;
+    }
+    const url = app.globalData.serverUrl + 'relay';
+    console.log(app.globalData.userInfo);
+    const data = {
+      user_id: app.globalData.openid,
+      nickname: app.globalData.nickname,
+      content: content
+    };
+    wx.request({
+      url: url,
+      method: 'POST',
+      data: data,
+      success(result) {
+        if (result.statusCode==200) {
+          wx.showToast({
+            title: '发布成功',
+          });
+          if (result.data.result == true) {
+            
+          }
+          else {
+            wx.showToast({
+              title: result.data.msg,
+            });
+          }
+        }
+      },
+    })
+  },
 })

@@ -1,7 +1,26 @@
 <!--pages/line/line.wxml-->
-<text>pages/line/line.wxml</text>
 <scroll-view scroll-y="true" class="muse-list">
   <block wx:for="{{parentMuses}}" wx:for-item="muse">
+    <view class="muse-card">
+      <view class="muse-title">
+        <text class="muse-user">{{muse.nickname}}</text>
+        <text class="muse-time">{{muse.create_time}}</text>
+        <text class="muse-floor">{{muse.floor}} 层</text>
+      </view>
+      <text class="muse-body">{{muse.content}}</text>
+      <view class="muse-button-container">
+        <button id="{{muse.museID}}" bindtap="bindGoLineTap" class="muse-enter">查看与接力</button>
+        <button id="{{muse.museID}}" bindtap="bindGoReportTap" class="muse-report">举报</button>
+      </view>
+    </view>
+  </block>
+
+  <form bindsubmit="formSubmit">
+    <textarea placeholder="接力情节（30~300字）" name="textarea" class="section edit" auto-height auto-focus/>
+    <button form-type="submit" class="relay-button"> 接力 </button>
+  </form>
+
+  <block wx:for="{{childMuses}}" wx:for-item="muse">
     <view class="muse-card">
       <view class="muse-title">
         <text class="muse-user">{{muse.nickname}}</text>

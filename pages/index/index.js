@@ -87,7 +87,7 @@ Page({
       data: data,
       success: (result) => {
         if (result.statusCode==200) {
-          console.log(result.data);
+          console.log('latest', result.data);
           this.setData({
             latestMuses: result.data.data,  // 数组
           })
@@ -110,7 +110,7 @@ Page({
       data: data,
       success: (result) => {
         if (result.statusCode==200) {
-          console.log(result.data);
+          console.log('maximum', result.data);
           this.setData({
             maximumMuses: result.data.data,  // 数组
           })
@@ -130,7 +130,7 @@ Page({
       data: data,
       success: (result) => {
         if (result.statusCode==200) {
-          console.log(result.data);
+          console.log('entrance', result.data);
           this.setData({
             entranceMuses: result.data.data,  // 数组
           })
