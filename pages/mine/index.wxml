@@ -9,12 +9,12 @@
 
 <!--内容主体-->
   <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
+		<!-- 发布/接力 -->
     <swiper-item>
       <scroll-view scroll-y="true" class="muse-list">
 				<block wx:for="{{mineAfterMuses}}" wx:for-item="muse">
 					<view class="muse-card">
 						<view class="muse-title">
-							<text class="muse-user">{{app.globalData.nickname}}</text>
 							<text class="muse-time">{{muse.create_time}}</text>
 							<text class="muse-floor">{{muse.floor}} 层</text>
 						</view>
@@ -26,12 +26,14 @@
 				</block>
 			</scroll-view>
     </swiper-item>
+		
+		<!-- 被接力 -->
     <swiper-item>
       <scroll-view scroll-y="true" class="muse-list">
 				<block wx:for="{{afterMineMuses}}" wx:for-item="muse">
 					<view class="muse-card">
 						<view class="muse-title">
-							<text class="muse-user">{{app.globalData.nickname}}</text>
+							<text class="muse-user">{{muse.userID}}</text>
 							<text class="muse-time">{{muse.create_time}}</text>
 							<text class="muse-floor">{{muse.floor}} 层</text>
 						</view>
@@ -44,6 +46,8 @@
 				</block>
 			</scroll-view>
     </swiper-item>
+
+		<!-- 排行 -->
     <swiper-item>
       <view>暂无排行榜</view>
     </swiper-item>

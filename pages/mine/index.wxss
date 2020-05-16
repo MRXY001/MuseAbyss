@@ -27,6 +27,18 @@
   border-bottom: 5rpx solid #4169E1;
 }
 
+/**思绪卡片**/
+.muse-card {
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-top: 24rpx;
+  margin-bottom: 24rpx;
+  padding: 16rpx;
+  border-radius: 8rpx;
+  background-color: white;
+  box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.08), 0 6rpx 20rpx 0 rgba(0, 0, 0, 0.08);
+}
+
 /**标题行**/
 .muse-title {
   display: flex;
@@ -43,7 +55,7 @@
 .muse-time {
   color: gray;
   font-size: smaller;
-  margin-left: 32rpx;
+  margin-left: -32rpx;
 }
 
 /**楼层**/
