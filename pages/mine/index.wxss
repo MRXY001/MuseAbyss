@@ -81,3 +81,44 @@
   display: inline;
   color: #4169E1;
 }
+
+/**用户卡片**/
+.user-card {
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-top: 24rpx;
+  margin-bottom: 24rpx;
+  padding: 16rpx;
+  border-radius: 8rpx;
+  background-color: white;
+  box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.08), 0 6rpx 20rpx 0 rgba(0, 0, 0, 0.08);
+}
+
+/**用户行**/
+.user-title {
+  display: flex;
+  justify-content: space-around;
+}
+
+/**排行**/
+.user-rank {
+  color: gray;
+  font-size: smaller;
+  margin-left: -32rpx;
+}
+
+/**用户**/
+.user-nick {
+  /* text-align: left; */
+  font-weight: 640;
+}
+
+/**数量**/
+.user-count {
+  color: #CC7722;
+  font-size: smaller;
+}
+
+.my-info {
+  margin: 32px;
+}

@@ -12,7 +12,7 @@
 	<swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
     <swiper-item>
       <scroll-view scroll-y="true" class="muse-list">
-				<block wx:for="{{latestMuses}}" wx:for-item="muse">
+				<block wx:for="{{latestMuses}}" wx:for-item="muse" wx:key="key">
 					<view class="muse-card">
 						<view class="muse-title">
 							<text class="muse-user">{{muse.nickname}}</text>
@@ -30,7 +30,7 @@
     </swiper-item>
     <swiper-item>
       <scroll-view scroll-y="true" class="muse-list">
-				<block wx:for="{{maximumMuses}}" wx:for-item="muse">
+				<block wx:for="{{maximumMuses}}" wx:for-item="muse" wx:key="key">
 					<view class="muse-card">
 						<view class="muse-title">
 							<text class="muse-user">{{muse.nickname}}</text>
@@ -48,7 +48,7 @@
     </swiper-item>
     <swiper-item>
       <scroll-view scroll-y="true" class="muse-list">
-				<block wx:for="{{entranceMuses}}" wx:for-item="muse">
+				<block wx:for="{{entranceMuses}}" wx:for-item="muse" wx:key="key">
 					<view class="muse-card">
 						<view class="muse-title">
 							<text class="muse-user">{{muse.nickname}}</text>

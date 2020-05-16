@@ -12,7 +12,7 @@
 		<!-- 发布/接力 -->
     <swiper-item>
       <scroll-view scroll-y="true" class="muse-list">
-				<block wx:for="{{mineAfterMuses}}" wx:for-item="muse">
+				<block wx:for="{{mineAfterMuses}}" wx:for-item="muse" wx:key="key">
 					<view class="muse-card">
 						<view class="muse-title">
 							<text class="muse-time">{{muse.create_time}}</text>
@@ -30,7 +30,7 @@
 		<!-- 被接力 -->
     <swiper-item>
       <scroll-view scroll-y="true" class="muse-list">
-				<block wx:for="{{afterMineMuses}}" wx:for-item="muse">
+				<block wx:for="{{afterMineMuses}}" wx:for-item="muse" wx:key="key">
 					<view class="muse-card">
 						<view class="muse-title">
 							<text class="muse-user">{{muse.userID}}</text>
@@ -49,7 +49,20 @@
 
 		<!-- 排行 -->
     <swiper-item>
-      <view>暂无排行榜</view>
+			<text class="my-info">我的openid：{{openid}}</text>
+			<text class="my-info">我的排名：{{myRank}}</text>
+			<text class="my-info">我被接力的次数：{{relayedCount}}</text>
+			<scroll-view scroll-y="true" class="muse-list">
+				<block wx:for="{{rankUsers}}" wx:for-item="user" wx:key="key">
+					<view class="user-card">
+						<view class="user-title">
+							<text class="user-rank">{{index + 1}}</text>
+							<text class="user-nick">{{user.nickname}}</text>
+							<text class="user-count">被接力 {{user.relayed_count}} 次</text>
+						</view>
+					</view>
+				</block>
+			</scroll-view>
     </swiper-item>
   </swiper>
 </view>
