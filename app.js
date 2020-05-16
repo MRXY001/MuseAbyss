@@ -10,19 +10,13 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        const openIdUrl = 'https://api.weixin.qq.com/sns/jscode2session';
+        // const openIdUrl = 'https://api.weixin.qq.com/sns/jscode2session';
         wx.request({
-          url: openIdUrl,
-          data: {
-            appid:'wxbc52ff8ba16a625c',
-            secret:'82c170ad840e857a7a69da02a6652ca9', // 简直操蛋，太麻烦，懒得挂服务器上了
-            js_code:res.code,
-            grant_type:'authorization_code',
-            encryptedData: res.encryptedData,
-            iv: res.iv
-          },
+          url: this.globalData.serverUrl + 'WXQQJSCODE2SESSION',
+          data: res,
           success: (res) => {
             console.log('获取 openid 成功', res.data.openid, res);
+            console.log(this.globalData.serverUrl + 'WXQQJSCODE2SESSION');
             this.globalData.openid = res.data.openid;
           },
           fail: (res) => {
