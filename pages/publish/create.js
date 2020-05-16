@@ -71,14 +71,29 @@ Page({
       nickname: app.globalData.nickname,
       content: content
     };
+    if (app.globalData.openid == null) {
+      wx.showToast({
+        title: '未能获取到openid',
+      });
+      return ;
+    }
     wx.request({
       url: url,
       method: 'POST',
       data: data,
       success(result) {
         if (result.statusCode==200) {
+          var til = '创建成功';
+          if (result.data == null)
+            til = '未知获取到data';
+          else if (result.data.result == null) {
+            til = '>data:' + result.data;
+            console.log(result.data);
+          }
+          else
+            til = result.data.result;
           wx.showToast({
-            title: '发布成功',
+            title: til,
           });
           if (result.data.result == true) {
             wx.switchTab({
